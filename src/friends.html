@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>TalkTally</title>
+    <meta name="viewport"
+        content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <script type="module"
+        src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"></script>
+    <script nomodule
+        src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="./assets/imgs/logo.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <script type="module" src="./js/system/friends.js"></script>
+    <script src="js/script.js"></script>
+
+    <meta name="theme-color" content="#31d53d" />
+</head>
+
+<body style="background-image: url('assets/imgs/message-bg.png');">
+
+    <div class="container-fluid">
+        <!-- navbar -->
+        <nav class="navbar navbar-dark bg-purple fixed-top">
+            <div class="container-fluid">
+                <button class="navbar-toggler rounded-circle" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#">Contacts</a>
+                <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasDarkNavbar"
+                    aria-labelledby="offcanvasDarkNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h3 class="offcanvas-title fw-bold" id="offcanvasDarkNavbarLabel">Account</h3>
+                        <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fs-2" aria-current="page" href="message.html">Chats</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark fs-2" href="profile.html">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active text-primary fs-2" href="friends.html">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <br><br><br>
+    
+        <!-- end of search bar -->
+
+     <!-- Container -->
+     <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <!-- Modal Btn and Form -->
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="form_modal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabindex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                      Add Friends
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <!-- Item Form -->
+                  <form id="form_item">
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                      <!-- Item Name Field -->
+                      <div class="row mb-3">
+                        <div class="col-sm-12">
+                          <input
+                            class="form-control"
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Name"
+                            autocomplete="name"
+                            required
+                          />
+                        </div>
+                      </div>
+  
+                      <!-- Price Field -->
+                      <div class="row mb-3">
+                        <div class="col-sm-12">
+                          <input
+                            class="form-control"
+                            type="number"
+                            name="points_to_deduct"
+                            id="points_to_deduct"
+                            min="0"
+                            max="100"
+                            step="10"
+                            placeholder="Set Message Points"
+                            required
+                          />
+                        </div>
+                      </div>
+  
+  
+                      <!-- Image File Field; Comment this div, if no upload functionality -->
+                      <div class="row mb-3">
+                        <div class="col-sm-12">
+                          <input
+                            class="form-control"
+                            type="file"
+                            name="profile_photo"
+                            accept="image/*"
+                            required
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                      <button
+                        id="modal_close"
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        class="btn btn-danger w-25 d-flex align-items-center justify-content-center"
+                        type="submit"
+                      >
+                        Add
+                      </button>
+                    </div>
+                  </form>
+                  <!-- End Slides Form -->
+                </div>
+              </div>
+            </div>
+            <!-- End Modal -->
+
+            <!-- Search Form -->
+            <form id="form_search">
+              <div class="row">
+                <div class="d-flex">
+                  <input
+                    class="form-control"
+                    type="text"
+                    name="keyword"
+                    placeholder="Search Contacts"
+                  />
+                         
+                  <button class="btn btn-outline-dark" type="submit">
+                    Search
+                  </button>
+                </div>
+  
+                <div class="col-sm-2 d-flex justify-content-center mb-1 mt-2">
+                  <!-- Button trigger modal -->
+                  <button
+                    id="modal_show"
+                    type="button"
+                    class="btn btn-danger w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#form_modal"
+                  >
+                    Add Friends
+                  </button>
+                  <!-- End Button trigger modal  -->
+                </div>
+              </div>
+            </form>
+  
+            <hr />
+          </div>
+        </div>
+  
+        <!-- Notifications -->
+        <div class="alert alert-success d-none" role="alert"></div>
+        <div class="alert alert-danger d-none" role="alert"></div>
+  
+        <!-- Get All Data -->
+        <div class="row pb-5" id="get_data">
+        </div>
+  
+        <!-- Pagination of All Data -->
+        <div class="d-flex justify-content-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination" id="get_pagination"></ul>
+          </nav>
+        </div>
+      </div>
+      <!-- End Container -->
+
+
+        <footer>
+            <nav class="navbar navbar-dark bg-light fixed-bottom">
+                <div class="container-fluid">
+                    <ul class="nav nav-tabs d-flex justify-content-center">
+                        <li class="nav-item ps-2 ms-4">
+                            <a class="nav-link" id="messages-tab" data-toggle="tab" href="message.html" role="tab"
+                                aria-controls="messages" aria-selected="false"><img src="assets/imgs/2.png"
+                                    alt="Messages" height="40px" width="40px"></a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link active" id="contacts-tab" data-toggle="tab" href="friends.html"
+                                role="tab" aria-controls="contacts" aria-selected="true"><img src="assets/imgs/3.png"
+                                    alt="Contacts" height="40px" width="40px"></a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="profile.html" role="tab"
+                                aria-controls="profile" aria-selected="false"><img src="assets/imgs/4.png" alt="Profile"
+                                    height="40px" width="40px"></a>
+                        </li>
+                        <li class="nav-item ps-3">
+                            <a class="nav-link" id="btn_logout" href="#" onclick="logout()" role="tab" aria-controls="out"
+                  aria-selected="false"><img src="assets/imgs/5.png" alt="Out" height="40px" width="40px"></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </footer>
+    </div>
+
+    <script src="./js/capacitor-welcome.js" type="module"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>TalkTally</title>
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <script type="module"
+    src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"></script>
+  <script nomodule
+    src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
+
+  <link rel="icon" type="image/x-icon" href="./assets/imgs/logo.png" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <script type="module" src="./js/system/message.js"></script>
+  <script src="js/script.js"></script>
+
+  <meta name="theme-color" content="#31d53d" />
+</head>
+
+<body style="background-image: url('assets/imgs/message-bg.png');">
+
+  <div class="container-fluid">
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-purple fixed-top">
+      <div class="container-fluid">
+        <button class="navbar-toggler rounded-circle" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Messages</a>
+        <div class="offcanvas offcanvas-start text-bg-light" tabindex="-1" id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel">
+          <div class="offcanvas-header">
+            <h3 class="offcanvas-title fw-bold" id="offcanvasDarkNavbarLabel">Account</h3>
+            <button type="button" class="btn-close btn-close-dark" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link active text-primary fs-2" aria-current="page" href="message.html">Chats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fs-2" href="profile.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fs-2" href="friends.html">Contacts</a>
+              </li>
+ 
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <!-- list of messages -->
+    <div class="container mt-5 pt-5 pb-5 mb-4">
+      <div class="media mb-4 d-flex align-items-center">
+        <img src="assets/imgs/lor.jpg" class="mr-3 rounded-circle" alt="User 1" style="width: 64px; height: 64px;">
+        <div class="media-body ps-3">
+          <a href="person1.html" class="link-offset-2 link-underline link-underline-opacity-0 text-dark">
+            <h4 class="mt-0">Lorriane Babad</h4>
+          </a>
+          How are you doing?  <small>10:49 AM</small>
+        </div>
+      </div>
+
+    </div>
+    <!-- end of list of messages -->
+
+    <footer>
+      <nav class="navbar navbar-dark bg-light fixed-bottom">
+        <div class="container-fluid">
+          <ul class="nav nav-tabs d-flex justify-content-center">
+            <li class="nav-item ps-2 ms-4">
+              <a class="nav-link active" id="messages-tab" data-toggle="tab" href="message.html" role="tab"
+                aria-controls="messages" aria-selected="true"><img src="assets/imgs/2.png" alt="Messages" height="40px"
+                  width="40px"></a>
+            </li>
+            <li class="nav-item ps-3">
+              <a class="nav-link" id="contacts-tab" data-toggle="tab" href="friends.html" role="tab"
+                aria-controls="contacts" aria-selected="false"><img src="assets/imgs/3.png" alt="Contacts" height="40px"
+                  width="40px"></a>
+            </li>
+            <li class="nav-item ps-3">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="profile.html" role="tab"
+                aria-controls="profile" aria-selected="false"><img src="assets/imgs/4.png" alt="Profile" height="40px"
+                  width="40px"></a>
+            </li>
+            <li class="nav-item ps-3">
+              <a class="nav-link" id="btn_logout" onclick="logout()" 
+                  aria-selected="false"><img src="assets/imgs/5.png" alt="Out" height="40px" width="40px"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="./js/capacitor-welcome.js" type="module"></script>
+</body>
+
+</html>
